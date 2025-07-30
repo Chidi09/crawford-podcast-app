@@ -1,0 +1,8 @@
+# /backend/requirements.txt
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+python-multipart
+passlib[bcrypt]
+python-jose

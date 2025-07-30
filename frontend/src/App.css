@@ -1,0 +1,66 @@
+/* app.css */
+
+/*
+   Remove #root styles as Tailwind in App.tsx (flex-col, min-h-screen)
+   will manage the main layout and centering.
+   If you need a max-width, apply it to a container within your layout components.
+*/
+/*
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+*/
+
+/* Remove logo styles if not used, or if logos are SVGs/images directly */
+/*
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop_shadow(0 0 2em #61dafbaa);
+}
+*/
+
+/* Remove animations if not using the default demo logos */
+/*
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+*/
+
+/* Remove card and read-the-docs if not used, or style them with Tailwind directly */
+/*
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+*/
+
+/* Keep only essential global styles not covered by Tailwind, if any.
+   For example, if you have very specific reset rules or utility classes
+   that are genuinely global and not easily expressed in Tailwind.
+   However, for typical usage, this file can often become almost empty.
+*/

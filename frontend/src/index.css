@@ -1,0 +1,213 @@
+/* frontend/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Global Base Styles --- */
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Requires 'Inter' font to be imported in public/index.html */
+  background-color: #f8f8f8; /* Light gray background for light mode */
+  color: #333; /* Darker text for readability in light mode */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode styles for body */
+.dark body {
+  background-color: #1a202c; /* A deep charcoal for dark mode background */
+  color: #e2e8f0; /* Light gray text for readability in dark mode */
+}
+
+/* --- Root Element Styling (#root) --- */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Custom Scrollbar Styles --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+  border: 2px solid #f1f1f1;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border: 2px solid #2d3748;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: #4a5568;
+}
+
+/* --- Optional: Selection highlight color --- */
+::selection {
+  background-color: #F39C12; /* Using crawfordGold for selection */
+  color: #2C3E50; /* Using crawfordBlue for selected text */
+}
+.dark::selection {
+  background-color: #2C3E50; /* Using crawfordBlue for dark mode selection */
+  color: #F39C12; /* Using crawfordGold for dark mode selected text */
+}
+
+/* --- Optional: Focus outline for accessibility --- */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure images are responsive and don't overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Optional: Improve default heading margins for better visual rhythm */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0.8em;
+  margin-bottom: 0.4em;
+  line-height: 1.2;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Custom styles for the range input (progress bar) */
+.progress-bar-crawford {
+  -webkit-appearance: none; /* Override default appearance */
+  appearance: none;
+  background: transparent; /* Hide default track */
+}
+
+/* Track styling */
+.progress-bar-crawford::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #374151; /* Dark gray for the track */
+  border-radius: 2px;
+}
+
+.progress-bar-crawford::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: #374151; /* Dark gray for the track */
+  border-radius: 2px;
+}
+
+/* Progress fill (before the thumb) */
+.progress-bar-crawford::before {
+  content: '';
+  height: 4px;
+  width: calc((var(--range-progress) / var(--range-max)) * 100%); /* Dynamic width based on value */
+  background: #E8AF49; /* Crawford Gold for filled part */
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0; /* Ensure it's behind the thumb */
+}
+
+
+/* Thumb styling (the draggable circle) */
+.progress-bar-crawford::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default appearance */
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #E8AF49; /* Crawford Gold */
+  cursor: pointer;
+  margin-top: -5px; /* Adjust to vertically center thumb on track */
+  box-shadow: 0 0 0 4px rgba(232, 175, 73, 0.3); /* Ring on focus/hover */
+  position: relative;
+  z-index: 1;
+}
+
+.progress-bar-crawford::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #E8AF49; /* Crawford Gold */
+  cursor: pointer;
+  box-shadow: 0 0 0 4px rgba(232, 175, 73, 0.3); /* Ring on focus/hover */
+}
+
+/* Custom styles for the volume slider */
+.volume-slider-crawford {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.volume-slider-crawford::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: #374151;
+  border-radius: 2px;
+}
+
+.volume-slider-crawford::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: #374151;
+  border-radius: 2px;
+}
+
+.volume-slider-crawford::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #A0A0A0; /* Lighter gray for volume thumb */
+  cursor: pointer;
+  margin-top: -4px;
+}
+
+.volume-slider-crawford::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #A0A0A0;
+  cursor: pointer;
+}
+
+
+/* Radial gradient for player background (more advanced CSS) */
+.radial-gradient-player {
+  background: radial-gradient(circle at top left, rgba(6, 18, 30, 0.8) 0%, rgba(17, 24, 39, 0) 70%);
+}
